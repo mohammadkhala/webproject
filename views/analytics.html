@@ -1,0 +1,42 @@
+{{extend 'layout.html'}}
+
+{{=XML('<h1>Course Reports</h1>')}}
+{{if courses:}}
+  {{=XML('<h2>Enrollment Report</h2>')}}
+  <table>
+    <tr>
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Enrollment Count</th>
+    </tr>
+    {{for course in courses:}}
+      <tr>
+        <td>{{=course.code}}</td>
+        <td>{{=course.name}}</td>
+        <td>{{=course.enrollment_count}}</td>
+      </tr>
+    {{pass}}
+  </table>
+{{else:}}
+  <p>No courses found.</p>
+{{pass}}
+
+{{if popular_courses:}}
+  {{=XML('<h2>Popularity Report</h2>')}}
+  <table>
+    <tr>
+      <th>Course Code</th>
+      <th>Course Name</th>
+      <th>Enrollment Count</th>
+    </tr>
+    {{for course in popular_courses:}}
+      <tr>
+        <td>{{=course.code}}</td>
+        <td>{{=course.name}}</td>
+        <td>{{=course.enrollment_count}}</td>
+      </tr>
+    {{pass}}
+  </table>
+{{else:}}
+  <p>No popular courses found.</p>
+{{pass}}
